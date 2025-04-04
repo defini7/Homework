@@ -1,18 +1,26 @@
 #include "Match.hpp"
 
+Match::Match(const std::string_view team1, const std::string_view team2, const Date& time)
+{
+    Teams[0] = team1;
+    Teams[1] = team2;
+
+    Time = time;
+}
+
 Match& Match::operator=(const Match& rhs)
 {
     Teams[0] = rhs.Teams[0];
     Teams[1] = rhs.Teams[1];
 
-    Date = rhs.Date;
+    Time = rhs.Time;
 
     return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const Match& match)
 {
-    os << "Date = " << match.Date << std::endl;
+    os << "Date = " << match.Time << std::endl;
 
     os << "Team 1 = " << match.Teams[0] << std::endl;
     os << "Team 2 = " << match.Teams[1];
@@ -25,15 +33,15 @@ std::istream& operator>>(std::istream& is, Match& match)
     for (int j = 0; j < 2; j++)
         GetVar(match.Teams[j], "Enter team name", false, is);
 
-    GetVar(match.Date.Year, "Enter a year", match.Date.Year <= 0, is);
-    GetVar(match.Date.Month, "Enter a month", match.Date.Month <= 0 || match.Date.Month > 12, is);
+    GetVar(match.Time.Year, "Enter a year", match.Time.Year <= 0, is);
+    GetVar(match.Time.Month, "Enter a month", match.Time.Month <= 0 || match.Time.Month > 12, is);
 
-    bool isLeap = IsLeapYear(match.Date.Year);
+    bool isLeap = IsLeapYear(match.Time.Year);
 
-    GetVar(match.Date.Day, "Enter a day",
-           match.Date.Day <= 0 ||
-           match.Date.Day > 31 ||
-           match.Date.Month == 2 && match.Date.Day > (isLeap ? 29 : 28), is);
+    GetVar(match.Time.Day, "Enter a day",
+           match.Time.Day <= 0 ||
+           match.Time.Day > 31 ||
+           match.Time.Month == 2 && match.Time.Day > (isLeap ? 29 : 28), is);
 
     return is;
 }

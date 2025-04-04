@@ -2,6 +2,12 @@
 
 #include <iomanip>
 
+Date::Date(int day, int month, int year)
+    : Day(day), Month(month), Year(year)
+{
+
+}
+
 Date& Date::operator=(const Date& rhs)
 {
     Year = rhs.Year;

@@ -3,19 +3,24 @@
 #include <ostream>
 #include <istream>
 
-struct Date
+class Date
 {
-    int Year;
-    int Month;
-    int Day;
+public:
+    Date(int day = 0, int month = 0, int year = 0);
 
     Date& operator=(const Date&);
 
     int ToInt() const;
 
-    bool operator<(const Date& rhs);
-    bool operator>(const Date& rhs);
+    bool operator<(const Date&);
+    bool operator>(const Date&);
 
     friend std::ostream& operator<<(std::ostream&, const Date&);
     friend std::istream& operator>>(std::istream&, Date&);
+
+public:
+    int Day;
+    int Month;
+    int Year;
+
 };

@@ -47,7 +47,8 @@ League& League::operator=(const League& rhs)
 
     m_Matches = new Match[m_MatchesCount];
 
-    std::memcpy(m_Matches, rhs.m_Matches, sizeof(Match) * m_MatchesCount);
+    for (size_t i = 0; i < m_MatchesCount; i++)
+        m_Matches[i] = rhs.m_Matches[i];
 
     return *this;
 }
@@ -93,11 +94,11 @@ void League::FillRandomly()
     {
         Match& match = m_Matches[i];
 
-        match.Date.Year = GetRandomInt(minYear, maxYear);
-        match.Date.Month = GetRandomInt(1, 12);
+        match.Time.Year = GetRandomInt(minYear, maxYear);
+        match.Time.Month = GetRandomInt(1, 12);
 
-        match.Date.Day =
-            match.Date.Month == 2 ?
+        match.Time.Day =
+            match.Time.Month == 2 ?
             GetRandomInt(1, 29) :
             GetRandomInt(1, 31);
 
@@ -115,7 +116,7 @@ void League::InsertionSort()
 {
     for (size_t i = 1; i < m_MatchesCount; i++)
     {
-        for (size_t j = i; j > 0 && m_Matches[j].Date < m_Matches[j - 1].Date; j--)
+        for (size_t j = i; j > 0 && m_Matches[j].Time < m_Matches[j - 1].Time; j--)
             std::swap(m_Matches[j], m_Matches[j - 1]);
     }
 }
@@ -130,15 +131,15 @@ void League::QuickSortImpl(size_t start, size_t end)
     if (start >= end)
         return;
 
-    Date& pivot = m_Matches[start].Date;
+    Date& pivot = m_Matches[start].Time;
 
     size_t i = start - 1;
     size_t j = end + 1;
 
     while (true)
     {
-        do i++; while (m_Matches[i].Date < pivot);
-        do j--; while (m_Matches[j].Date > pivot);
+        do i++; while (m_Matches[i].Time < pivot);
+        do j--; while (m_Matches[j].Time > pivot);
 
         if (i >= j)
             break;
