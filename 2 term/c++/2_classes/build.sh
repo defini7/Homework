@@ -1,0 +1,1 @@
+clang++ -std=c++17 -Wall GetCstr.cpp Match.cpp Source.cpp -o App

@@ -1,0 +1,1 @@
+clang++ -std=c++17 -Wall Utils.cpp Date.cpp Match.cpp League.cpp Source.cpp -o App

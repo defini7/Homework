@@ -2,9 +2,19 @@
 
 int main()
 {
-    char c;
+    Date d(20, 10, 2007);
 
-    do
+    std::cout << ++d << std::endl;
+    std::cout << d++ << std::endl;
+    std::cout << --d << std::endl;
+    std::cout << d-- << std::endl;
+
+    std::cout << (d += Date(10, 20, 30)) << std::endl;
+    std::cout << (d -= Date(24, 20, 10)) << std::endl;
+
+    //char c;
+
+    /*do
     {
         League league;
 
@@ -16,5 +26,5 @@ int main()
         GetVar(c, "Would you like to start from the beginning? (y/n)",
                c != 'y' && c != 'n' && c != 'Y' && c != 'N', std::cin);
     }
-    while (c == 'y' || c == 'Y');
+    while (c == 'y' || c == 'Y');*/
 }
