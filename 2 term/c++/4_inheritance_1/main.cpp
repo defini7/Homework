@@ -75,6 +75,10 @@ int main()
 	std::cout << "Choose a function:\n\t1 - const\n\t2 - linear\n\t3 - quadratic\n";
 	
 	int funcType, method;
+	
+	/*Function_Quadratic func;
+	func.Function::GetDerivative();
+	func.Function_Quadratic::GetDerivative();*/
 
 	do std::cin >> funcType;
 	while (funcType < 1 || funcType > 3); 
@@ -105,9 +109,8 @@ int main()
 	#define PRINT_DERIVATIVE(DerType, FuncType) \
 		do \
 		{ \
-			DerType* deriv = ((FuncType*)func)->GetDerivative(); \
-			std::cout << *deriv << std::endl; \
-			delete deriv; \
+			DerType deriv = ((FuncType*)func)->GetDerivative(); \
+			std::cout << deriv << std::endl; \
 		} while (0)
 
 	std::cout << "Derivative: ";

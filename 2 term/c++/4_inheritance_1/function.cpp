@@ -10,14 +10,15 @@ double Function::GetValue(double param) const
 	return +INFINITY;
 }
 
-Function* Function::GetDerivative() const
+Function Function::GetDerivative() const
 {
 	std::cerr << "Can't calculate a derivative for the undefined function" << std::endl;
-	return new Function();
+	exit(1);
 }
 
 Function_Const::Function_Const(double offset) : OffsetY(offset)
 {
+	
 }
 
 double Function_Const::GetValue(double) const
@@ -25,9 +26,9 @@ double Function_Const::GetValue(double) const
 	return OffsetY;
 }
 
-Function_Const* Function_Const::GetDerivative() const
+Function_Const Function_Const::GetDerivative() const
 {
-	return new Function_Const(0.0);
+	return Function_Const(0.0);
 }
 
 Function_Linear::Function_Linear(double slope, double offset)
@@ -40,9 +41,9 @@ double Function_Linear::GetValue(double param) const
 	return Slope * param + OffsetY;
 }
 
-Function_Const* Function_Linear::GetDerivative() const
+Function_Const Function_Linear::GetDerivative() const
 {
-	return new Function_Const(Slope);
+	return Function_Const(Slope);
 }
 
 Function_Quadratic::Function_Quadratic(double offsetX, double offsetY, double curvature)
@@ -56,10 +57,10 @@ double Function_Quadratic::GetValue(double param) const
 	return Curvature * offsetX * offsetX + OffsetY;
 }
 
-Function_Linear* Function_Quadratic::GetDerivative() const
+Function_Linear Function_Quadratic::GetDerivative() const
 {
 	double slope = 2.0 * Curvature;
-	return new Function_Linear(slope, -2.0 * Curvature * OffsetX);
+	return Function_Linear(slope, -2.0 * Curvature * OffsetX);
 }
 
 std::ostream& operator<<(std::ostream& os, const Function& func) { return os; }

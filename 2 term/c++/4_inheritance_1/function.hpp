@@ -9,7 +9,7 @@ public:
 	Function() = default;
 	
 	double GetValue(double param) const;
-	Function* GetDerivative() const;
+	Function GetDerivative() const;
 	
 };
 
@@ -20,7 +20,7 @@ public:
 	Function_Const(double offset);
 
 	double GetValue(double param) const;
-	Function_Const* GetDerivative() const;
+	Function_Const GetDerivative() const;
 	
 public:
 	double OffsetY;
@@ -34,7 +34,7 @@ public:
 	Function_Linear(double slope, double offset);
 
 	double GetValue(double param) const;
-	Function_Const* GetDerivative() const;
+	Function_Const GetDerivative() const;
 	
 public:
 	double Slope;
@@ -49,7 +49,7 @@ public:
 	Function_Quadratic(double offsetX, double offsetY, double curvature);
 
 	double GetValue(double param) const;
-	Function_Linear* GetDerivative() const;
+	Function_Linear GetDerivative() const;
 	
 public:
 	double OffsetX;
