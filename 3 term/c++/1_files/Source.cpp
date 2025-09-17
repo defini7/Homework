@@ -44,7 +44,7 @@ int main()
         league.QuickSort();
 
         std::cout << std::endl << league << std::endl;
-        league.Save("matches" + std::to_string(i) + ".txt");
+        league.Save("matches" + std::to_string(i++) + ".txt");
 
         GetVar(c, "Would you like to start from the beginning? (y/n)",
                c != 'y' && c != 'n' && c != 'Y' && c != 'N', std::cin);

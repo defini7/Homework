@@ -120,7 +120,10 @@ std::string get_string(const std::string_view message)
 	std::cout << message << ": ";
 	
 	std::string s;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, s);
+
+	s.append(1, '\n');
 
 	return s;
 }
