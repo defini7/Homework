@@ -22,26 +22,21 @@ T Vec2D<T>::s_SomeStaticVariableWithTypeT = 666;
 
 namespace std
 {
-    string to_string(const Vec2D<int>& v)
-    {
-        return format("int: ({}, {})", v.x, v.y);
-    }
-
     string to_string(const Vec2D<double>& v)
     {
         return format("double: ({}, {})", v.x, v.y);
     }
 
-    string to_string(const Vec2D<long double>& v)
+    string to_string(const Vec2D<float>& v)
     {
         return format("long double: ({}, {})", v.x, v.y);
     }
 
-    template <class T>
+    /*template <class T>
     string to_string(const Vec2D<T>& v)
     {
         return format("({}, {})", v.x, v.y);
-    }
+    }*/
 }
 
 int main()
@@ -52,10 +47,4 @@ int main()
     cout << to_string(v1) << endl;
 
     cout << Vec2D<int>::s_SomeStaticVariableWithTypeT << endl;
-
-    Vec2D<double> v2(3, 4);
-    cout << to_string(v2) << endl;
-
-    Vec2D<long double> v3(5.5, 6.6);
-    cout << to_string(v3) << endl;
 }
