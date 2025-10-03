@@ -1,2 +1,3 @@
-**/App
 .vscode
+**/.DS_Store
+**/a.out

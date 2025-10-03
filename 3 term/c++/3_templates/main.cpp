@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <format>
 #include <type_traits>
 
 template <class T>
@@ -10,6 +9,17 @@ class Vec2D
 
 public:
     Vec2D(T x = 0, T y = 0) : x(x), y(y) {}
+
+    Vec2D<T> operator+(const Vec2D<T>& other) const
+    {
+        return { x + other.x, y + other.y };
+    }
+
+    template <class U>
+    inline operator Vec2D<U>() const
+    {
+        return { static_cast<U>(x), static_cast<U>(y) };
+    }
 
     T x, y;
 
@@ -22,7 +32,7 @@ T Vec2D<T>::s_SomeStaticVariableWithTypeT = 666;
 
 namespace std
 {
-    string to_string(const Vec2D<double>& v)
+    /*string to_string(const Vec2D<double>& v)
     {
         return format("double: ({}, {})", v.x, v.y);
     }
@@ -30,13 +40,19 @@ namespace std
     string to_string(const Vec2D<float>& v)
     {
         return format("long double: ({}, {})", v.x, v.y);
-    }
+    }*/
 
-    /*template <class T>
+    template <class T>
     string to_string(const Vec2D<T>& v)
     {
-        return format("({}, {})", v.x, v.y);
-    }*/
+        return "(" + std::to_string(v.x) + ", " + std::to_string(v.y) + ")";
+    }
+}
+
+template <class T1, class T2>
+decltype(T1() + T2()) two_sum(T1 v1, T2 v2)
+{
+    return v1 + v2;
 }
 
 int main()
@@ -47,4 +63,6 @@ int main()
     cout << to_string(v1) << endl;
 
     cout << Vec2D<int>::s_SomeStaticVariableWithTypeT << endl;
+    cout << two_sum(2, 42.3) << endl;
+    cout << to_string(two_sum(v1, Vec2D<int>(2, 3))) << endl;
 }

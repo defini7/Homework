@@ -1,1 +1,0 @@
-clang++ -m64 function.cpp main.cpp -o main
