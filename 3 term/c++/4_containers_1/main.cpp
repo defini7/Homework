@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 /*#include <vector>
+#include <queue>
 #include <string>
 #include <set>*/
 #include <type_traits>
@@ -40,7 +41,40 @@ int main()
 
     Container<Point2D<int>> data;
 
-    while (1)
+    /*std::cout << "Queue:\n";
+
+    std::queue<int> a;
+    a.push(4);
+    a.push(2);
+
+    std::cout << a.front() << std::endl;
+    a.pop();
+
+    std::cout << a.front() << std::endl;
+    a.pop();
+
+    std::priority_queue<int> b;
+
+    std::cout << "Priority queue:\n";
+
+    b.push(2);
+    b.push(3);
+    b.push(-12);
+    b.push(40);
+
+    std::cout << b.top() << std::endl;
+    b.pop();
+
+    std::cout << b.top() << std::endl;
+    b.pop();
+
+    std::cout << b.top() << std::endl;
+    b.pop();
+
+    std::cout << b.top() << std::endl;
+    b.pop();*/
+
+    /*while (1)
     {
         std::cout << "$ ";
 
@@ -97,9 +131,9 @@ int main()
 
         if (tokens[0] == "quit")
             break;
-    }
+    }*/
 
-    /*Container<double> s1;
+    Container<double> s1;
     Container<double> s2;
 
     std::cout << "s1: ";
@@ -148,12 +182,12 @@ int main()
 
     //////////////////////////
 
-    std::cout << "Sum s1: " << std::accumulate(s1.begin(), s1.end(), 0) << std::endl;
+    std::cout << "Sum s1: " << std::accumulate(s1.begin(), s1.begin() + 3, 0) << std::endl;
 
     //////////////////////////
 
     int n = rand() % 10;
     bool has = std::binary_search(s1.begin(), s1.end(), n);
 
-    std::cout << "s1 " << (has ? "contains " : "doesn't contain ") << n << " in it" << std::endl;*/
+    std::cout << "s1 " << (has ? "contains " : "doesn't contain ") << n << " in it" << std::endl;
 }

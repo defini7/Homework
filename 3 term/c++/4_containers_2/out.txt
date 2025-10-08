@@ -1,0 +1,48 @@
+Room 1: 
+	Chair: 4
+	Table: 0
+	Fridge: 4
+	Bed: 4
+	Mirror: 0
+	Wardrobe: 4
+Room 2: 
+	Chair: 4
+	Table: 3
+	Fridge: 0
+	Bed: 4
+	Mirror: 4
+	Wardrobe: 0
+Room 3: 
+	Chair: 5
+	Table: 0
+	Fridge: 4
+	Bed: 5
+	Mirror: 3
+	Wardrobe: 2
+Room 4: 
+	Chair: 1
+	Table: 1
+	Fridge: 4
+	Bed: 5
+	Mirror: 0
+	Wardrobe: 3
+Room 5: 
+	Chair: 1
+	Table: 3
+	Fridge: 5
+	Bed: 1
+	Mirror: 4
+	Wardrobe: 2
+Room 6: 
+	Chair: 0
+	Table: 5
+	Fridge: 4
+	Bed: 5
+	Mirror: 3
+	Wardrobe: -4
+Room 7: 
+	Chair: 0
+	Wardrobe: 1
+	Table: 3
+	Fridge: 3
+	Mirror: -2
