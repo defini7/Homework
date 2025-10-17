@@ -191,14 +191,14 @@ using namespace std;
 
 int main()
 {
-    vector<int> v = { 3, 3, 4, 5, 10, 20, 31, 31, 36, 42, 43, 55 };
-
-    v.insert(lower_bound(v.begin(), v.end(), 10), 10);
-    v.insert(upper_bound(v.begin(), v.end(), 21), 21);
+    vector<int> v = { 3, 3, 4, 5, 10, 20, 21, 31, 31, 36, 42, 43, 55 };
 
     auto [left, right] = equal_range(v.begin(), v.end(), 21);
 
-    cout << *left << ' ' << *right << endl;
+    cout << distance(v.begin(), left) << ':' << *left << ' ' << distance(v.begin(), right) << ':' << *right << endl;
+
+    v.insert(left, 21);
+    //v.insert(right, 21);
 
     for (int n : v)
         cout << n << endl;
